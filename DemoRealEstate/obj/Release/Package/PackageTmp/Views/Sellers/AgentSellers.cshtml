@@ -1,0 +1,50 @@
+﻿@model IEnumerable<DemoRealEstate.Models.Seller>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+
+
+<div style="background-color:ghostwhite; padding: 15px; border-radius: 10px;">
+
+    <h2>Sellers</h2>
+
+    <div style="margin-bottom:20px;"><a href="~/Agents/Index">Home</a></div>
+
+    @using (Html.BeginForm())
+    {
+        <p>
+            Name: @Html.TextBox("SearchString") <br /><br />
+            <input type="submit" value="Filter" /><br />
+        </p>}
+</div>
+<table class="table" style="background-color:aliceblue; ">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Email)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+            </td>
+        </tr>
+    }
+
+</table>

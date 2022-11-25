@@ -1,0 +1,134 @@
+﻿@model IEnumerable<DemoRealEstate.Models.Request>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+
+<style>
+    body {
+        background-image: none;
+    }
+    .chat{
+        
+    }
+    .agent {
+        font-size: 1.3em;
+        text-decoration:underline;
+    }
+    .message{
+        padding: 10px;
+        width: 30%;
+        border-bottom-right-radius: 25px;
+        font-size: 1.1em;
+    }
+    @@media(max-width: 800px) {
+        .message {
+            width: 90%;
+        }
+    }
+    .filter-con {
+        background-color: gainsboro;
+        width: 80%;
+        margin: auto;
+        padding: 20px;
+        margin-bottom: 25px;
+        font-size: 1.2em;
+        display: flex;
+        text-transform: uppercase;
+        margin-top: 35px;
+    }
+
+    .filter-gr {
+        display: inline-block;
+        margin-right: 20px;
+    }
+</style>
+<div>
+    <h2></h2>
+</div>
+<div class="filter-con">
+    @using (Html.BeginForm())
+    {
+
+        if (User.IsInRole("Client"))
+        {
+
+            <div class="filter-gr">
+                <p>
+                    Agent: @Html.DropDownList("Agents", "All")
+                </p>
+            </div>
+
+        }
+
+        if (User.IsInRole("Agent"))
+        {
+            <div class="filter-gr">
+                <p>
+                    Clients: @Html.DropDownList("Client", "All")
+                </p>
+            </div>
+        }
+
+        <hr />
+        <div class="filter-gr">
+            <input type="submit" value="Filter" />
+        </div>
+        if (User.IsInRole("Client"))
+        {
+            <div>
+                <p>
+                    @Html.ActionLink("New Request", "Create")
+                </p>
+            </div>
+        }
+    }
+</div>
+<div>
+    
+    
+    <div class="chat">
+        @foreach (var item in Model)
+        {
+            var message = item.Message;
+            var agent = item.Agent.Name;
+            var agentS = item.Agent.Surname;
+            var from = item.From;
+            var user = item.User_id;
+            var color = "lightblue";
+
+            if (from == user)
+            {
+                 color = "lightcyan";
+            }
+           
+
+            if (User.IsInRole("Client"))
+            {
+                <div class="agent">
+                    <p>@agent @agentS</p>
+                </div>  
+            }
+
+            if (User.IsInRole("Agent"))
+            {
+                <div class="agent">
+                    <p>@item.Name</p>
+                </div>
+            }
+
+            <div class="message" style="background-color: @color">
+                <p>@message</p>
+
+                @if (User.IsInRole("Agent"))
+                {
+                    @Html.ActionLink("Reply", "Reply", new { userId = item.User_id, Id = item.Id })
+                }
+
+            </div>
+
+
+        }
+    </div>
+</div>

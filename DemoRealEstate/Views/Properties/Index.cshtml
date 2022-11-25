@@ -1,0 +1,126 @@
+﻿@model IEnumerable<DemoRealEstate.Models.Property>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<style>
+    body {
+        background-color: rgb(128, 128, 128);
+        background-image:none;
+    }
+
+    .filter-con {
+        background-color: gainsboro;
+        width: 80%;
+        margin: auto;
+        padding: 20px;
+        margin-bottom: 25px;
+        font-size: 1.2em;
+        display: flex;
+        text-transform:uppercase;
+        margin-top:35px;
+    }
+    .filter-gr{
+        display:inline-block;
+        margin-right:20px;
+    }
+</style>
+@{ 
+    var returnhome = "";
+
+    if (User.IsInRole("Admin"))
+    {
+        returnhome = "Admin/Index";
+    }
+}
+<div class="filter-con">
+    @using (Html.BeginForm())
+    {
+        <div class="filter-gr">
+            <p>KeyWord: @Html.TextBox("SearchString")</p>
+        </div>
+
+        <div class="filter-gr">
+            <p>
+                Province: @Html.DropDownList("province", "All")
+            </p>
+        </div>
+
+        <div class="filter-gr">
+            <p>
+                City or Suburb: @Html.DropDownList("cityorsuburb", "All")
+            </p>
+        </div><hr />
+        <div class="filter-gr">
+            <input type="submit" value="Filter" />
+        </div>
+        
+        {
+            if (User.IsInRole("Admin"))
+            {
+                    <a href="~/@returnhome">Back home</a>
+            }
+        }
+
+    }
+</div>
+
+<style>
+    .Container {
+        width: 50%;
+        margin: auto;
+    }
+
+    @@media(max-width: 800px) {
+        .Container {
+            width: 95%;
+        }
+    }
+
+    .img img {
+        width: 100%;
+    }
+
+    .inline-properties {
+        display: inline-flex;
+        background-color: darkgrey;
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .prop {
+        margin: 5px;
+        font-size: 1.1em;
+        text-transform: uppercase;
+    }
+</style>
+
+@foreach (var item in Model)
+{
+    <div class="Container">
+        @{ 
+            var id = item.Id;
+        }
+        <div class="img">
+            <a href="~/Properties/Details/@id"><img src="@Html.Raw(item.ImageURL)" alt="Alternate Text" /></a>
+        </div>
+        <div class="inline-properties">
+            <div class="prop">
+                @Html.DisplayFor(modelItem => item.PropertyName)
+            </div>
+            <div class="prop">
+                <p>R @Html.DisplayFor(modelItem => item.Price)</p>
+            </div>
+            <div class="prop">
+                @Html.DisplayFor(modelItem => item.Province)
+            </div>
+            <div class="prop">
+                @Html.DisplayFor(modelItem => item.CityorSuburb)
+            </div>
+            <div class="prop">
+                @Html.ActionLink("Details", "Details", new { id = item.Id })
+            </div>
+        </div><hr/>
+    </div>
+}

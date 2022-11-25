@@ -1,0 +1,41 @@
+﻿@model IEnumerable<DemoRealEstate.Models.Payment>
+
+@{
+    ViewBag.Title = "Index";
+}
+<style>
+    body{
+        background-image: none;
+    }
+</style>
+<h2>Transactions</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Property.PropertyName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Price)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Date)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.Property.PropertyName)
+    </td>
+    <td>
+        <p>R @Html.DisplayFor(modelItem => item.Price)</p>
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Date)
+    </td>
+</tr>
+}
+
+</table>

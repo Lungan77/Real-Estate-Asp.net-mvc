@@ -1,0 +1,194 @@
+﻿@model IEnumerable<DemoRealEstate.Models.Property>
+
+@{
+    ViewBag.Title = "AgentProperty";
+}
+
+
+<style>
+
+    .filter-con {
+        background-color: gainsboro;
+        width: 80%;
+        margin: auto;
+        padding: 10px;
+        margin-bottom: 25px;
+        font-size: 1.2em;
+        display: flex;
+        text-transform: uppercase;
+        margin-top: 35px;
+        border-radius:10px;
+        opacity:0.8;
+    }
+    @@media(max-width: 800px) {
+        .filter-con {
+            width: 95%;
+        }
+    }
+    .filter-gr {
+        display: inline-block;
+        margin-right: 20px;
+    }
+
+</style>
+
+
+<div class="filter-con">
+    @using (Html.BeginForm())
+    {
+        <div class="filter-gr">
+            <p>KeyWord: @Html.TextBox("SearchString")</p>
+        </div>
+
+        <div class="filter-gr">
+            <p>
+                Province: @Html.DropDownList("province", "All")
+            </p>
+        </div>
+
+        <div class="filter-gr">
+            <p>
+                City or Suburb: @Html.DropDownList("cityorsuburb", "All")
+            </p>
+        </div><hr />
+        <div class="filter-gr">
+            <input type="submit" value="Filter" />
+        </div>
+        <a href="~/Agents/Index">Back</a>
+    }
+</div>
+<table class="table" style=" background-color:aliceblue; opacity:0.8;">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ImageURL)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Seller.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PropertyName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PropertyType)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Province)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CityorSuburb)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Price)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PropertyInf)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Sold)
+        </th>
+        <th></th>
+    </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                @{ 
+
+                    string sold = "";
+
+                    if (item.Sold == false)
+                    {
+                        sold = "Selling";
+                    }
+                    else
+                    {
+                        sold = "Sold";
+                    }
+
+                    var Id = item.Id;
+
+                }
+                <td>
+                    <img src="@Html.Raw(item.ImageURL)" alt="Alternate Text" style="width:150px;"/>
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Seller.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PropertyName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PropertyType)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Province)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CityorSuburb)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Price)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PropertyInf)
+                </td>
+                <td>
+                    <a href="~/Properties/Edit/@Id">@sold</a>
+                </td>
+                <td>
+                    <a href="~/Properties/Edit/@Id">Edit</a>
+                    <a href="~/Properties/Details/@Id">Details</a>
+                    <a href="~/Properties/Delete/@Id">Delete</a>
+                </td>
+            </tr>
+        }
+
+    </table>
+
+@*<style>
+    .Container{
+        width:50%;
+        margin:auto;
+    }
+    .img img{
+        width: 100%;
+    }
+    .inline-properties{
+        display:inline-flex;
+        background-color:darkgrey;
+        width:100%;
+        margin-bottom:5px;
+    }
+
+    .prop{
+        margin: 10px;
+        font-size:1.2em;
+        text-transform:uppercase;
+    }
+</style>
+
+@foreach (var item in Model)
+{
+    <div class="Container">
+        <div class="img">
+            <img src="@Html.Raw(item.ImageURL)" alt="Alternate Text" />
+        </div>
+        <div class="inline-properties">
+            <div class="prop">
+                @Html.DisplayFor(modelItem => item.PropertyName)
+            </div>
+            <div class="prop">
+                <p>R @Html.DisplayFor(modelItem => item.Price)</p>
+            </div>
+            <div class="prop">
+                @Html.DisplayFor(modelItem => item.Province)
+            </div>
+            <div class="prop">
+                @Html.DisplayFor(modelItem => item.CityorSuburb)
+            </div>
+            <div class="prop">
+                @Html.ActionLink("Details", "Details", new { id = item.Id })
+            </div>
+        </div>
+    </div>*@
+@*}*@

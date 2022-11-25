@@ -1,0 +1,121 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+<style>
+    body {
+        background-image: none;
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    }
+
+    .Container {
+        height: 100vh;
+        position: absolute;
+        z-index: 10;
+        width: 100%;
+        left: 0px;
+        right: 0px;
+        background-image: url("https://th.bing.com/th/id/R.24dad937e1e626cacf4f38abb4e2778d?rik=vyn%2bfHI%2fyeE6Qw&pid=ImgRaw&r=0");
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        margin-top: 0px;
+    }
+
+   
+
+    .sub-con {
+        height: 100vh;
+        position: absolute;
+        width: 100%;
+        left: 0px;
+        right: 0px;
+        background-color: rgba(0, 0, 0, 0.5);
+        color: beige;
+        text-align: center;
+        margin: auto;
+    }
+
+    .contant {
+        text-align: center;
+        margin: 30vh;
+        font-family: 'Bell MT';
+    }
+
+    .Container h2 {
+        text-transform: uppercase;
+        font-size: 4em;
+        font-weight: 500;
+        font-family: Algerian;
+    }
+
+    .contant h3 {
+        font-size: 2em;
+        text-transform: uppercase;
+    }
+
+    .contant p {
+        font-size: 1.5em;
+        width: 50%;
+        margin: auto;
+    }
+
+    .contant div {
+        padding: 10px;
+        margin: 15px;
+        cursor: pointer;
+    }
+
+    .contant a {
+        text-transform: uppercase;
+        padding: 15px;
+        font-size: 1.5em;
+        font-weight: 600;
+        color: black;
+        width: 100%;
+        background-color: antiquewhite;
+    }
+
+    .container a:hover {
+        background-color: aqua;
+    }
+    @@media(max-width: 800px) {
+        .Container {
+            background-image: url("https://wallpapercave.com/wp/wp7352271.jpg")
+        }
+            .Container h2 {
+                font-size: 2em;
+            }
+        .contant {
+            text-align:left;
+            margin: 10px;
+            font-family: 'Bell MT';
+        }
+        .contant h3 {
+            font-size: 1.5em;
+        }
+        .contant p {
+            font-size: 1em;
+            width: 80%;
+            margin: auto;
+        }
+        .contant a {
+            font-size: 1.1em;
+        }
+    }
+
+</style>
+<div class="Container">
+    <div class="sub-con">
+        <div class="contant">
+            <h2>Welcome To PropertyMAX</h2>
+            <h3>Find the best service anytime we are at your service</h3>
+            <p>We can can help you sell and buy property. Here at propertyMax we offer the best services.</p>
+            <div>
+                <a href="~/Home/LogInByrole">Join Us</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+

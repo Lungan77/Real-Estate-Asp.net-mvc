@@ -1,0 +1,29 @@
+﻿@using Microsoft.AspNet.Identity
+@if (Request.IsAuthenticated)
+{
+    using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+    {
+    @Html.AntiForgeryToken()
+
+    <ul class="nav navbar-nav navbar-right">
+        <li style="color:black;">
+            @*<img src="~/images/user.png" />*@
+            @*@Html.ActionLink("Hello " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })*@
+            @{ 
+                string logged = User.Identity.GetUserName();
+            }
+            <a href="~/Manage/Index">@logged <img src="~/images/user.png" /></a>
+        </li>
+        <li><a href="javascript:document.getElementById('logoutForm').submit()">Log off <img src="~/images/log-out.png" /></a></li>
+    </ul>
+                    }
+                }
+                else
+                {
+    <ul class="nav navbar-nav navbar-right">
+        @*<li style="color:black;">@Html.ActionLink("Register", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" }) <img src="~/images/user (1).png" /></li>*@
+        <li><a href="~/Account/Register" id = "registerLink" >Register <img src="~/images/user (1).png" /></a></li>
+        @*<li style="color:black;">@Html.ActionLink("Log in", "LogInByrole", "Home", routeValues: null, htmlAttributes: new { id = "loginLink" }) <img src="~/images/user-profile.png" /></li>*@
+        <li><a href="~/Home/LogInByrole">Log in <img src="~/images/user-profile.png" /></a></li>
+    </ul>
+}

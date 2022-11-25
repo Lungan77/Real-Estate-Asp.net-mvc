@@ -1,0 +1,596 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\EntityFramework.6.4.0\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.4.0\build\EntityFramework.props')" />
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{EE79FB5C-C467-4DAB-BE5A-0FE2A3DC3198}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DemoRealEstate</RootNamespace>
+    <AssemblyName>DemoRealEstate</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort>44392</IISExpressSSLPort>
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.7\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.7\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.AspNet.Identity.Core">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.3\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Owin">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Owin.2.2.3\lib\net45\Microsoft.AspNet.Identity.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.2.3\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Owin">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin">
+      <HintPath>..\packages\Microsoft.Owin.4.0.1\lib\net45\Microsoft.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.SystemWeb">
+      <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.4.0.1\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security">
+      <HintPath>..\packages\Microsoft.Owin.Security.4.0.1\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Cookies">
+      <HintPath>..\packages\Microsoft.Owin.Security.Facebook.4.0.1\lib\net45\Microsoft.Owin.Security.Facebook.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Cookies">
+      <HintPath>..\packages\Microsoft.Owin.Security.Cookies.4.0.1\lib\net45\Microsoft.Owin.Security.Cookies.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Google">
+      <HintPath>..\packages\Microsoft.Owin.Security.Google.4.0.1\lib\net45\Microsoft.Owin.Security.Google.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Twitter">
+      <HintPath>..\packages\Microsoft.Owin.Security.Twitter.4.0.1\lib\net45\Microsoft.Owin.Security.Twitter.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.MicrosoftAccount">
+      <HintPath>..\packages\Microsoft.Owin.Security.MicrosoftAccount.4.0.1\lib\net45\Microsoft.Owin.Security.MicrosoftAccount.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.OAuth">
+      <HintPath>..\packages\Microsoft.Owin.Security.OAuth.4.0.1\lib\net45\Microsoft.Owin.Security.OAuth.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\IdentityConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\Agents1Controller.cs" />
+    <Compile Include="Controllers\AgentsController.cs" />
+    <Compile Include="Controllers\BuyersController.cs" />
+    <Compile Include="Controllers\ClientsController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\PaymentsController.cs" />
+    <Compile Include="Controllers\PropertiesController.cs" />
+    <Compile Include="Controllers\RequestsController.cs" />
+    <Compile Include="Controllers\SellersController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202208111001223_InitialModels.cs" />
+    <Compile Include="Migrations\202208111001223_InitialModels.designer.cs">
+      <DependentUpon>202208111001223_InitialModels.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202208151151453_addBuyer.cs" />
+    <Compile Include="Migrations\202208151151453_addBuyer.designer.cs">
+      <DependentUpon>202208151151453_addBuyer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202208160833565_InitialModels1.cs" />
+    <Compile Include="Migrations\202208160833565_InitialModels1.designer.cs">
+      <DependentUpon>202208160833565_InitialModels1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202208170948151_addAgent.cs" />
+    <Compile Include="Migrations\202208170948151_addAgent.Designer.cs">
+      <DependentUpon>202208170948151_addAgent.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202208171010463_AddAdminRoleAndAdminUser.cs" />
+    <Compile Include="Migrations\202208171010463_AddAdminRoleAndAdminUser.Designer.cs">
+      <DependentUpon>202208171010463_AddAdminRoleAndAdminUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202208181656248_changeAgentIdrostring.cs" />
+    <Compile Include="Migrations\202208181656248_changeAgentIdrostring.Designer.cs">
+      <DependentUpon>202208181656248_changeAgentIdrostring.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202208181739329_addadmintorole.cs" />
+    <Compile Include="Migrations\202208181739329_addadmintorole.Designer.cs">
+      <DependentUpon>202208181739329_addadmintorole.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202208182346118_addAgentUserId.cs" />
+    <Compile Include="Migrations\202208182346118_addAgentUserId.Designer.cs">
+      <DependentUpon>202208182346118_addAgentUserId.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202208231109416_addimageurl.cs" />
+    <Compile Include="Migrations\202208231109416_addimageurl.Designer.cs">
+      <DependentUpon>202208231109416_addimageurl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202208231207449_addImageURLs.cs" />
+    <Compile Include="Migrations\202208231207449_addImageURLs.Designer.cs">
+      <DependentUpon>202208231207449_addImageURLs.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202208240852270_addFullNameAndTitle.cs" />
+    <Compile Include="Migrations\202208240852270_addFullNameAndTitle.Designer.cs">
+      <DependentUpon>202208240852270_addFullNameAndTitle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202208250945225_addValidations.cs" />
+    <Compile Include="Migrations\202208250945225_addValidations.Designer.cs">
+      <DependentUpon>202208250945225_addValidations.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202208250949242_addsellervali.cs" />
+    <Compile Include="Migrations\202208250949242_addsellervali.Designer.cs">
+      <DependentUpon>202208250949242_addsellervali.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202208291025103_removesurname.cs" />
+    <Compile Include="Migrations\202208291025103_removesurname.Designer.cs">
+      <DependentUpon>202208291025103_removesurname.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202209050909495_addagentphone.cs" />
+    <Compile Include="Migrations\202209050909495_addagentphone.Designer.cs">
+      <DependentUpon>202209050909495_addagentphone.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202210040834203_add-request.cs" />
+    <Compile Include="Migrations\202210040834203_add-request.Designer.cs">
+      <DependentUpon>202210040834203_add-request.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202210051150274_update-request.cs" />
+    <Compile Include="Migrations\202210051150274_update-request.Designer.cs">
+      <DependentUpon>202210051150274_update-request.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202210051211210_add-val.cs" />
+    <Compile Include="Migrations\202210051211210_add-val.Designer.cs">
+      <DependentUpon>202210051211210_add-val.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202210051230135_update-val.cs" />
+    <Compile Include="Migrations\202210051230135_update-val.Designer.cs">
+      <DependentUpon>202210051230135_update-val.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202210100941488_add-client.cs" />
+    <Compile Include="Migrations\202210100941488_add-client.Designer.cs">
+      <DependentUpon>202210100941488_add-client.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202210100947284_add-phone.cs" />
+    <Compile Include="Migrations\202210100947284_add-phone.Designer.cs">
+      <DependentUpon>202210100947284_add-phone.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202210310829445_addagentshare.cs" />
+    <Compile Include="Migrations\202210310829445_addagentshare.Designer.cs">
+      <DependentUpon>202210310829445_addagentshare.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202210311218570_add-shareR.cs" />
+    <Compile Include="Migrations\202210311218570_add-shareR.Designer.cs">
+      <DependentUpon>202210311218570_add-shareR.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202211041749003_balance.cs" />
+    <Compile Include="Migrations\202211041749003_balance.Designer.cs">
+      <DependentUpon>202211041749003_balance.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202211041911042_add-payment.cs" />
+    <Compile Include="Migrations\202211041911042_add-payment.Designer.cs">
+      <DependentUpon>202211041911042_add-payment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202211051349277_addClientId.cs" />
+    <Compile Include="Migrations\202211051349277_addClientId.Designer.cs">
+      <DependentUpon>202211051349277_addClientId.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202211051350056_seeding-property.cs" />
+    <Compile Include="Migrations\202211051350056_seeding-property.Designer.cs">
+      <DependentUpon>202211051350056_seeding-property.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202211061344530_date.cs" />
+    <Compile Include="Migrations\202211061344530_date.Designer.cs">
+      <DependentUpon>202211061344530_date.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202211071714278_add-users.cs" />
+    <Compile Include="Migrations\202211071714278_add-users.Designer.cs">
+      <DependentUpon>202211071714278_add-users.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202211071800449_add-agentandclient.cs" />
+    <Compile Include="Migrations\202211071800449_add-agentandclient.Designer.cs">
+      <DependentUpon>202211071800449_add-agentandclient.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\Agent.cs" />
+    <Compile Include="Models\Buyer.cs" />
+    <Compile Include="Models\Client.cs" />
+    <Compile Include="Models\Email.cs" />
+    <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\Payment.cs" />
+    <Compile Include="Models\Property.cs" />
+    <Compile Include="Models\Request.cs" />
+    <Compile Include="Models\Seller.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Startup.cs" />
+    <Compile Include="ViewModels\PropertySellerViewModel.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap-theme.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Payment.css" />
+    <Content Include="Content\style.css" />
+    <Content Include="favicon.ico" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\Site.css" />
+    <Content Include="images\chat.png" />
+    <Content Include="images\community.png" />
+    <Content Include="images\deal.png" />
+    <Content Include="images\home.png" />
+    <Content Include="images\info.png" />
+    <Content Include="images\log-out.png" />
+    <Content Include="images\realtor.png" />
+    <Content Include="images\seller.png" />
+    <Content Include="images\telephone.png" />
+    <Content Include="images\user %281%29.png" />
+    <Content Include="images\user-profile.png" />
+    <Content Include="images\user.png" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <None Include="Properties\PublishProfiles\DemoRealEstate20221121050928 - Web Deploy.pubxml" />
+    <None Include="Scripts\jquery-3.4.1.intellisense.js" />
+    <Content Include="Scripts\jquery-3.4.1.js" />
+    <Content Include="Scripts\jquery-3.4.1.min.js" />
+    <Content Include="Scripts\jquery-3.4.1.slim.js" />
+    <Content Include="Scripts\jquery-3.4.1.slim.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
+    <Content Include="Views\Account\ConfirmEmail.cshtml" />
+    <Content Include="Views\Account\ExternalLoginConfirmation.cshtml" />
+    <Content Include="Views\Account\ExternalLoginFailure.cshtml" />
+    <Content Include="Views\Account\ForgotPassword.cshtml" />
+    <Content Include="Views\Account\ForgotPasswordConfirmation.cshtml" />
+    <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\Account\Register.cshtml" />
+    <Content Include="Views\Account\ResetPassword.cshtml" />
+    <Content Include="Views\Account\ResetPasswordConfirmation.cshtml" />
+    <Content Include="Views\Account\SendCode.cshtml" />
+    <Content Include="Views\Account\VerifyCode.cshtml" />
+    <Content Include="Views\Manage\AddPhoneNumber.cshtml" />
+    <Content Include="Views\Manage\ChangePassword.cshtml" />
+    <Content Include="Views\Manage\Index.cshtml" />
+    <Content Include="Views\Manage\ManageLogins.cshtml" />
+    <Content Include="Views\Manage\SetPassword.cshtml" />
+    <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
+    <Content Include="Views\Shared\Lockout.cshtml" />
+    <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Sellers\Create.cshtml" />
+    <Content Include="Views\Sellers\Delete.cshtml" />
+    <Content Include="Views\Sellers\Details.cshtml" />
+    <Content Include="Views\Sellers\Edit.cshtml" />
+    <Content Include="Views\Sellers\Index.cshtml" />
+    <Content Include="Views\Buyers\Create.cshtml" />
+    <Content Include="Views\Buyers\Delete.cshtml" />
+    <Content Include="Views\Buyers\Details.cshtml" />
+    <Content Include="Views\Buyers\Edit.cshtml" />
+    <Content Include="Views\Buyers\Index.cshtml" />
+    <Content Include="Views\Properties\Create.cshtml" />
+    <Content Include="Views\Properties\Delete.cshtml" />
+    <Content Include="Views\Properties\Details.cshtml" />
+    <Content Include="Views\Properties\Edit.cshtml" />
+    <Content Include="Views\Properties\Index.cshtml" />
+    <Content Include="Views\Account\RegisterAgent.cshtml" />
+    <Content Include="Views\Account\LoginAgent.cshtml" />
+    <Content Include="Views\Agents\Index.cshtml" />
+    <Content Include="Views\Agents\AgentProperty.cshtml" />
+    <Content Include="Views\Account\LoginAdmin.cshtml" />
+    <Content Include="Views\Admin\Index.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Home\LogInByrole.cshtml" />
+    <Content Include="Views\Agents1\Create.cshtml" />
+    <Content Include="Views\Agents1\Delete.cshtml" />
+    <Content Include="Views\Agents1\Details.cshtml" />
+    <Content Include="Views\Agents1\Edit.cshtml" />
+    <Content Include="Views\Agents1\Index.cshtml" />
+    <Content Include="Views\Agents\Edit.cshtml" />
+    <Content Include="Views\Agents\Details.cshtml" />
+    <Content Include="Views\Sellers\AgentSellers.cshtml" />
+    <Content Include="Views\Agents\MyClients.cshtml" />
+    <Content Include="Views\Requests\Create.cshtml" />
+    <Content Include="Views\Requests\Delete.cshtml" />
+    <Content Include="Views\Requests\Details.cshtml" />
+    <Content Include="Views\Requests\Edit.cshtml" />
+    <Content Include="Views\Requests\Index.cshtml" />
+    <Content Include="Views\Requests\Reply.cshtml" />
+    <Content Include="Views\Payments\Create.cshtml" />
+    <Content Include="Views\Payments\Delete.cshtml" />
+    <Content Include="Views\Payments\Details.cshtml" />
+    <Content Include="Views\Payments\Edit.cshtml" />
+    <Content Include="Views\Payments\Index.cshtml" />
+    <Content Include="Views\Payments\Payment_done.cshtml" />
+    <Content Include="Views\Clients\Create.cshtml" />
+    <Content Include="Views\Clients\Delete.cshtml" />
+    <Content Include="Views\Clients\Details.cshtml" />
+    <Content Include="Views\Clients\Edit.cshtml" />
+    <Content Include="Views\Clients\Index.cshtml" />
+    <Content Include="Views\Clients\Me.cshtml" />
+    <Content Include="Views\Clients\My_Property.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Styles\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\bootstrap.min.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\bootstrap-theme.min.css.map" />
+    <Content Include="Content\bootstrap-theme.css.map" />
+    <None Include="packages.config" />
+    <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
+    <Content Include="Scripts\jquery-3.4.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202208111001223_InitialModels.resx">
+      <DependentUpon>202208111001223_InitialModels.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202208151151453_addBuyer.resx">
+      <DependentUpon>202208151151453_addBuyer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202208160833565_InitialModels1.resx">
+      <DependentUpon>202208160833565_InitialModels1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202208170948151_addAgent.resx">
+      <DependentUpon>202208170948151_addAgent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202208171010463_AddAdminRoleAndAdminUser.resx">
+      <DependentUpon>202208171010463_AddAdminRoleAndAdminUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202208181656248_changeAgentIdrostring.resx">
+      <DependentUpon>202208181656248_changeAgentIdrostring.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202208181739329_addadmintorole.resx">
+      <DependentUpon>202208181739329_addadmintorole.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202208182346118_addAgentUserId.resx">
+      <DependentUpon>202208182346118_addAgentUserId.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202208231109416_addimageurl.resx">
+      <DependentUpon>202208231109416_addimageurl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202208231207449_addImageURLs.resx">
+      <DependentUpon>202208231207449_addImageURLs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202208240852270_addFullNameAndTitle.resx">
+      <DependentUpon>202208240852270_addFullNameAndTitle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202208250945225_addValidations.resx">
+      <DependentUpon>202208250945225_addValidations.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202208250949242_addsellervali.resx">
+      <DependentUpon>202208250949242_addsellervali.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202208291025103_removesurname.resx">
+      <DependentUpon>202208291025103_removesurname.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202209050909495_addagentphone.resx">
+      <DependentUpon>202209050909495_addagentphone.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202210040834203_add-request.resx">
+      <DependentUpon>202210040834203_add-request.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202210051150274_update-request.resx">
+      <DependentUpon>202210051150274_update-request.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202210051211210_add-val.resx">
+      <DependentUpon>202210051211210_add-val.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202210051230135_update-val.resx">
+      <DependentUpon>202210051230135_update-val.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202210100941488_add-client.resx">
+      <DependentUpon>202210100941488_add-client.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202210100947284_add-phone.resx">
+      <DependentUpon>202210100947284_add-phone.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202210310829445_addagentshare.resx">
+      <DependentUpon>202210310829445_addagentshare.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202210311218570_add-shareR.resx">
+      <DependentUpon>202210311218570_add-shareR.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202211041749003_balance.resx">
+      <DependentUpon>202211041749003_balance.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202211041911042_add-payment.resx">
+      <DependentUpon>202211041911042_add-payment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202211051349277_addClientId.resx">
+      <DependentUpon>202211051349277_addClientId.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202211051350056_seeding-property.resx">
+      <DependentUpon>202211051350056_seeding-property.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202211061344530_date.resx">
+      <DependentUpon>202211061344530_date.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202211071714278_add-users.resx">
+      <DependentUpon>202211071714278_add-users.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202211071800449_add-agentandclient.resx">
+      <DependentUpon>202211071800449_add-agentandclient.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>63146</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>https://localhost:44392/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.0\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.0\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.0\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.0\build\EntityFramework.targets'))" />
+  </Target>
+  <Import Project="..\packages\EntityFramework.6.4.0\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.4.0\build\EntityFramework.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

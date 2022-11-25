@@ -1,0 +1,48 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<style>
+   
+    .header{
+        width: 35%;
+    }
+
+    .Container{
+        background-color:aliceblue;
+        opacity:0.7;
+        padding: 20px;
+    }
+    .Container h2{
+        text-transform: uppercase;
+        text-decoration: underline;
+    }
+    .header img{
+        width: 60%;
+    }
+    .Links{
+        font-size: 1.6em;
+        margin-top: 30px;
+    }
+    .link-gr{
+        padding:5px;
+    }
+    .link-gr img{
+        width: 50px;
+        margin-right: 20px;
+    }
+</style>
+
+<div class="Container">
+    <div class="header">
+        <img src="https://icons.iconarchive.com/icons/aha-soft/free-large-boss/512/Admin-icon.png" alt="Admin icon" />
+        <h2>Hello Admin</h2>
+    </div>
+    <div class="Links">
+        <div class="link-gr"><img src="https://www.iconexperience.com/_img/v_collection_png/512x512/shadow/user_add.png" /><a href="~/Account/RegisterAgent">Create  Agent</a></div>
+        <div class="link-gr"><img src="https://cdn4.iconfinder.com/data/icons/business-bicolor-1/512/marketing-512.png" alt="Alternate Text" /><a href="~/Agents1/Index">View Agents</a></div>
+        <div class="link-gr"><img src="https://cdn-icons-png.flaticon.com/512/602/602232.png" alt="Alternate Text" /><a href="~/Properties/Index">View Properties</a></div>
+    </div>
+</div>
+

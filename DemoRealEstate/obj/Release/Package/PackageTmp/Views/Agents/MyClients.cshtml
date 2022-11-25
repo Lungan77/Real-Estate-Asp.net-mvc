@@ -1,0 +1,45 @@
+﻿
+@{
+    ViewBag.Title = "MyClients";
+}
+
+<style>
+    .Container {
+        font-size: 1.4em;
+        text-transform: uppercase;
+        background-color: aliceblue;
+        padding: 30px;
+        opacity: 0.8;
+        border-radius: 10px;
+    }
+    .Container img{
+        width: 50px;
+    }
+
+    @@media(max-width: 800px) {
+        .Container {
+            width: 95%;
+            padding: 10px;
+        }
+    }
+    .client-link{
+        margin-bottom: 25px;
+        font-weight:500;
+    }
+</style>
+<div class="Container">
+    <div style="margin:50px 50px 50px 10px; text-decoration:underline;">
+        <h2>MyClients</h2>
+    </div>
+    <div>
+        <div class="client-link">
+            <img src="~/images/seller.png" />
+            <a href="~/Sellers/Index">Sellers</a>
+        </div>
+        <div class="client-link">
+            <img src="~/images/deal.png" />
+            <a href="~/Buyers/Index">Buyers</a>
+        </div>
+    </div>
+    <div><a href="~/Agents/Index">Back</a></div>
+</div>

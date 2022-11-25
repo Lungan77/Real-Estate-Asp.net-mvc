@@ -1,0 +1,82 @@
+﻿@model DemoRealEstate.Models.Agent
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<style>
+    .Container{
+        width: 50%;
+        margin:auto;
+        background-color:aliceblue;
+        padding: 20px;
+        opacity: 0.7;
+    }
+    @@media(max-width: 800px) {
+        .Container {
+            width: 95%;
+        }
+    }
+    .imgA{
+        margin:auto;
+        text-align:center;
+        margin-bottom:50px;
+    }
+    .imgA img{
+        width:80px;
+        border-radius:50%;
+    }
+</style>
+
+<div class="Container">
+    <h2>Profile</h2>
+    <div>
+        <h4>Agent @Html.DisplayFor(model => model.Name)</h4>
+        <hr />
+    </div>
+    <div>
+        <div class="imgA">
+            <img src="~/images/Agent.png" alt="Alternate Text" />
+        </div>
+    </div>
+    <div style="margin:auto; margin-left:100px;">
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Name)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Name)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Surname)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Surname)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Email)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Email)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.PhoneNumber)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.PhoneNumber)
+            </dd>
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+        @Html.ActionLink("Back to home", "Index")
+    </p>
+</div>
+

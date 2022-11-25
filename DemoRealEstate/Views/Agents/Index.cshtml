@@ -1,0 +1,90 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<style>
+    .Container {
+        width: 80%;
+        text-align: center;
+        background-color: aliceblue;
+        opacity: 0.8;
+        padding: 50px;
+        margin: 30px 0;
+        border-radius: 10px;
+        margin: auto;
+    }
+    @@media(max-width: 800px) {
+        .Container {
+            width: 95%;
+        }
+    }
+    .Header{
+        padding:50px;
+        margin:auto;
+        text-align:center;
+        background-color:darkgrey;
+        width:100%;
+    }
+
+    .img img{
+        width:33% !important;
+    }
+
+    .flex{
+        display:flex;
+        margin-top: 50px;
+    }
+    @@media(max-width: 800px) {
+        .flex {
+            flex-direction:column;
+            margin-top: 15px;
+        }
+    }
+    .block{
+        font-size: 1.3em;
+        text-transform:uppercase;
+    }
+</style>
+<div class="Container">
+    <div class="Header">
+        <h2>Welcome Agent</h2>
+    </div>
+    <div class="flex">
+        <div class="block">
+            <div class="img">
+                <img src="https://cdn-icons-png.flaticon.com/512/3384/3384379.png" alt="Alternate Text" />
+            </div>
+            <div>
+                @Html.ActionLink("Add property", "Create", "Sellers")
+            </div>
+        </div>
+        <div class="block">
+            <div class="img">
+                <img src="https://cdn-icons-png.flaticon.com/512/602/602175.png" alt="Alternate Text" />
+            </div>
+            <div>
+                @Html.ActionLink("My Properties", "AgentProperty", "Agents")
+            </div>
+        </div>
+        <div class="block">
+            <div class="img">
+                <img src="https://cdn-icons-png.flaticon.com/512/3237/3237472.png" alt="Alternate Text" />
+            </div>
+            <div>
+                @Html.ActionLink("My Profile", "Details", "Agents")
+            </div>
+        </div>
+        <div class="block">
+            <div class="img">
+                <img src="~/images/community.png" />
+            </div>
+            <div>
+                @Html.ActionLink("My Clients", "MyClients", "Agents")
+            </div>
+        </div>
+    </div>
+</div>
+
+
+

@@ -1,0 +1,125 @@
+﻿@model DemoRealEstate.Models.Property
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<div style="background-color:aliceblue; padding: 30px;  opacity:0.8;">
+
+    <h2>Delete</h2>
+
+    <h3>Are you sure you want to delete this?</h3>
+    <div>
+        <h4>Property</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Seller.Name)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Seller.Name)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.PropertyName)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.PropertyName)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.PropertyType)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.PropertyType)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Province)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Province)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.CityorSuburb)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.CityorSuburb)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.PostalCode)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.PostalCode)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Address)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Address)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.AgentName)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.AgentName)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.AgentId)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.AgentId)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Price)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Price)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.PropertyInf)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.PropertyInf)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Sold)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Sold)
+            </dd>
+
+        </dl>
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-actions no-color">
+                <input type="submit" value="Delete" class="btn btn-default" /> |
+                @Html.ActionLink("Back to List", "AgentProperty", "Agents")
+            </div>
+        }
+    </div>
+
+</div>

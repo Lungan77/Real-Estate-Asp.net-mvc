@@ -1,0 +1,203 @@
+﻿@model DemoRealEstate.Models.Property
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<link rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" 
+      />
+
+
+<style>
+
+    body {
+        background-color: darkgray;
+        background-image: none;
+    }
+    .Container {
+        width: 100%;
+        
+    }
+    .image{
+        margin-top:50px;
+        display:flex;
+        align-items:center;
+        justify-content:center;
+    }
+    .swiper{
+        width:85%;
+       
+    }
+    .swiper-slide{
+        width:100%;
+    }
+    .Details{
+        display: flex;
+        font-size: 1.3em;
+        text-transform: uppercase;
+    }
+    .address{
+        margin-top: 90px;
+    }
+
+    .Button{
+        margin-bottom: 15px;
+    }
+
+    .Button a{
+        padding: 10px;
+        background-color: aqua;
+        color: black;
+        font-weight: 600;
+        border-radius: 5px;
+    }
+</style>
+
+<div class="Container">
+    <div class="image">
+        @*<img src="@Html.Raw(Model.ImageURL)" alt="Alternate Text"  style="width:80%;" />*@
+        <!-- Slider main container -->
+        <div class="swiper">
+            <!-- Additional required wrapper -->
+            <div class="swiper-wrapper">
+                <!-- Slides -->
+                <div class="swiper-slide"><img src="@Html.Raw(Model.ImageURL)" alt="Alternate Text" style="width:100%;" /></div>
+                <div class="swiper-slide"><img src="@Html.Raw(Model.ImageURL1)" alt="Alternate Text" style="width:100%;" /></div>
+                <div class="swiper-slide"><img src="@Html.Raw(Model.ImageURL2)" alt="Alternate Text" style="width:100%;" /></div>
+                <div class="swiper-slide"><img src="@Html.Raw(Model.ImageURL3)" alt="Alternate Text" style="width:100%;" /></div>
+            </div>
+            <!-- If we need pagination -->
+            <div class="swiper-pagination"></div>
+
+            <!-- If we need navigation buttons -->
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+
+            <!-- If we need scrollbar -->
+            <div class="swiper-scrollbar"></div>
+        </div>
+    </div>
+
+    <div class="Details">
+        <div>
+            <h2>@Model.PropertyName @Model.PropertyType</h2>
+            <hr />
+            <dl>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Seller.Name)
+                </dd>
+
+                <dd>
+                    @Html.DisplayFor(model => model.PropertyName)
+                </dd>
+
+                <dd>
+                    @Html.DisplayFor(model => model.PropertyType)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.AgentName)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.AgentName)
+                </dd>
+
+                <dd>
+                    <p>R @Html.DisplayFor(model => model.Price)</p>
+                </dd>
+
+                <dd>
+                    @Html.DisplayFor(model => model.PropertyInf)
+                </dd>
+                @{
+                    if (User.IsInRole("Agent"))
+                    {
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Agent_share)
+                        </dt>
+                        <dd>
+                            <p>R @Html.DisplayFor(model => model.Agent_share)</p>
+                        </dd>
+                    }
+                }
+
+
+            </dl>
+        </div>
+        <div class="address">
+            <dl>
+                <dd>
+                    @Html.DisplayFor(model => model.Province)
+                </dd>
+                <dd>
+                    @Html.DisplayFor(model => model.Address)
+                </dd>
+                <dd>
+                    @Html.DisplayFor(model => model.CityorSuburb)
+                </dd>
+                <dd>
+                    @Html.DisplayFor(model => model.PostalCode)
+                </dd>
+                <dd>
+                    @Html.DisplayFor(model => model.AgentPhoneNumber)
+                </dd>
+            </dl>
+        </div>
+    </div>
+    <hr/>
+
+    @{
+        var id = Model.Id;
+        var client = ViewBag.Client;
+        var clientId = ViewBag.ClientId;
+
+        if (client == clientId && User.IsInRole("Client"))
+        {
+            <div class="Button">
+                <a href="~/Payments/Create/@id">Make Payment</a>
+            </div>
+        }
+    }
+
+    @{
+        if (User.IsInRole("Agent"))
+        {
+            <p>
+                @Html.ActionLink("Edit", "Edit", new { id = Model.Id })  |
+                @Html.ActionLink("Back to List", "AgentProperty", "Agents") |
+
+            </p>
+        }
+        else
+        {
+            @Html.ActionLink("Back to List", "Index")
+        }
+
+    }
+
+</div>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+<script>
+    const swiper = new Swiper('.swiper', {
+        // Optional parameters
+        loop: true,
+
+        // If we need pagination
+        pagination: {
+            el: '.swiper-pagination',
+            clickable: true
+        },
+
+        // Navigation arrows
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        },
+    });
+</script>
+
